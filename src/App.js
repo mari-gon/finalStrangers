@@ -1,24 +1,33 @@
-import React from 'react';
-import {useState} from 'react';
-import Header from './components/Header';
-import Content from './components/Content'
-import './style/App.css';
+import React, {useState} from 'react'
+import ReactDOM from 'react-dom'
+import {BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom'
+import axios from 'axios' 
+import Login from './components/Login'
+import Register from './components/Register'
+import Header from './components/Header'
+import Posts from './components/Posts'
+import NewPost from './components/NewPost'
+import Profile from './components/Profile'
 
-function App() {
-  let [username, setUsername] = useState('');
-  let [password, setPassword] = useState('');
-  let [posts, setPosts] = useState([]);
-
-  return (
-    <div className='container'>
-      <Header
-      setUsername={setUsername}
-      setPassword={setPassword}
-      username={username}
-      password={password} />
-      <Content />
-    </div>
-  );
+const App = () =>{
+    const [signedIn, setSignedIn] = useState(false)
+    return(
+        <div>
+            <header>
+                <Header signedIn={signedIn} setSignedIn={setSignedIn}/>
+            </header>
+        <main>
+            <Switch>
+                <Route path='/register' component={Register}/>
+                <Route path='/login' render={()=> <Login signedIn={signedIn} setSignedIn={setSignedIn}/>} />
+                <Route path='/posts' component={Posts} />
+                {/* <Route path='/newpost' component={NewPost} /> */}
+                <Route path='/profile' component={Profile} />
+                <Route path='/' component={Posts} />
+            </Switch>
+        </main>
+        </div>
+    )
 }
 
-export default App;
+export default App

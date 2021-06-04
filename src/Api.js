@@ -1,6 +1,6 @@
-import axios from 'axios'
+/* import axios from 'axios'
 
-const BASE_URL = 'https://strangers-things.herokuapp.com/api/2104-UIC-WEB-FT';
+const BASE_URL = 'https://strangers-things.herokuapp.com/api/2104-UIC-RM-WEB-FT';
 let token = '';
 
 function setToken(accessToken){
@@ -17,6 +17,18 @@ function permissionsHeader() {
 
 async function loginRegisterUser(method, user) {
     let url = `${BASE_URL}/users/${method}`;
+    try {
+        let response = await axios.post(url, user)
+        token = response.data.data.token;
+        getPosts();
+    } catch (error) {
+        console.log('ERROR');
+        console.error(error);
+    }
+}
+
+async function registerUser( user) {
+    let url = `${BASE_URL}/users/register`;
     try {
         let response = await axios.post(url, user)
         token = response.data.data.token;
@@ -73,4 +85,5 @@ async function apiPost(post) {
 
 }
 
-export {loginRegisterUser, getPosts , apiPost, setToken, myData}
+export {loginRegisterUser, registerUser, getPosts , apiPost, setToken, myData}
+*/
