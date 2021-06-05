@@ -21,7 +21,7 @@ const App = () =>{
                 <Route path='/register' component={Register}/>
                 <Route path='/login' render={()=> <Login signedIn={signedIn} setSignedIn={setSignedIn}/>} />
                 <Route path='/posts' component={Posts} />
-                {/* <Route path='/newpost' component={NewPost} /> */}
+                <Route path='/newpost' component={NewPost} />
                 <Route path='/profile' component={Profile} />
                 <Route path='/' component={Posts} />
             </Switch>

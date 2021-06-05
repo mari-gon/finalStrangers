@@ -1,29 +1,13 @@
-// import '../style/Posts.css';
-// import React from 'react';
-
-// const Posts = (props) => {
-//     return (
-//         <div className='posts'>
-//             <h1>Posts</h1>
-//         </div>
-//     )
-// }
-
-// export default Posts
-
-
-
 import React, {useEffect, useState} from 'react'
 import axios from 'axios'
 import {BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom'
-
+import NewPost from './NewPost'
 
 const BASE_URL = 'https://strangers-things.herokuapp.com/api/2104-UIC-RM-WEB-FT'
 
 const Posts = ()=> {
 
     let [posts, setPosts] = useState([])
-
     let [searchTerm, setSearchTerm] = useState('')
 
     async function getPosts() {
@@ -52,7 +36,10 @@ const Posts = ()=> {
     }
 
     function postMatches(post, text){
-        if (post.title.includes(text) || post.description.includes(text) || post.price.includes(text) || post.author.username.includes(text) ){
+        if (post.title.toLowerCase().includes(text) || 
+            post.description.toLowerCase().includes(text) || 
+            post.price.toLowerCase().includes(text) || 
+            post.author.username.toLowerCase().includes(text) ){
             return true
             
         } else {
@@ -60,8 +47,10 @@ const Posts = ()=> {
         }
     }
 
-    const filteredPosts = posts.filter(post =>postMatches(post, searchTerm))
-    const postsToDisplay = searchTerm.length ? filteredPosts : posts;  
+    const filteredPosts = posts.filter( post => 
+        postMatches(post, searchTerm.toLowerCase()))
+    const postsToDisplay = searchTerm.length ? 
+        filteredPosts : posts;  
 
     let postElement = postsToDisplay.map((post, index, arr) =>{
         return (
@@ -88,16 +77,18 @@ const Posts = ()=> {
         {<div>
             <label>Search Available Items </label>
             <input 
-                id='search' 
-                type='text' 
-                placeholder='What are you looking for?'
-                value={searchTerm}
-                onChange={(event)=>{setSearchTerm(event.target.value)}}
+                id = 'search' 
+                type = 'text' 
+                placeholder = 'What are you looking for?'
+                value = {searchTerm}
+                onChange = {(event) => {
+                    setSearchTerm(event.target.value)}}
             />
         </div>}
 
+        {token ? <NewPost />: null}
         {/*Remove this but still make post only available when logged */}
-        {token ? <Link to='/newpost'>Create New Post</Link>: null}
+        {/* {token ? <Link to='/newpost'>Create New Post</Link>: null} */}
         {postElement}
         </>
     )

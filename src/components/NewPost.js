@@ -77,6 +77,8 @@ const NewPost = function () {
         }))
     }
 
+ 
+
     async function createPost(post){
         try{
             let response = await axios.post(`${BASE_URL}/posts`, post, {
@@ -86,11 +88,21 @@ const NewPost = function () {
             })
             let addedPost = response.data.data.post
             console.log(addedPost)
+            
         }catch(error){
             console.error(error)
         }
     }
 
+    async function clearPostForm() {
+        setPost((post) => ({
+            title: '',
+            description:'',
+            price: '',
+            location: '',
+            willDeliver: false,
+        }))
+    } 
 
     return (
         <div id="createPost">
@@ -124,10 +136,12 @@ const NewPost = function () {
                 <input type="Submit" onClick={(event)=>{
                     event.preventDefault()
                     createPost(post)
+                   
                 }}/>
             </form>
         </div>
     )
+   
 }
 
 export default NewPost

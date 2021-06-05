@@ -26,7 +26,7 @@ const Profile = function () {
     }, [])
 
     return (
-        <h1 id='welcome'>Welcome to your profile, {currentUser}!</h1>
+        <h1 id='welcome'>Welcome Back:  {currentUser}!</h1>
     )
 
 }

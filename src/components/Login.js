@@ -45,7 +45,7 @@ const Login = function (props) {
     }
 
     if (signedIn === true) {
-        return <Redirect to='/profile' />
+        return <Redirect to='/posts' />
     }
 
     return (
