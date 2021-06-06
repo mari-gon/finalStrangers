@@ -1,11 +1,11 @@
-/* import axios from 'axios'
+import axios from 'axios'
 
 const BASE_URL = 'https://strangers-things.herokuapp.com/api/2104-UIC-RM-WEB-FT';
-let token = '';
+const token = localStorage.getItem('token')
 
-function setToken(accessToken){
-    token = accessToken
-}
+// function setToken(accessToken){
+//     token = accessToken
+// }
 
 function permissionsHeader() {
     return {
@@ -14,7 +14,7 @@ function permissionsHeader() {
         }
     }
 }
-
+/* 
 async function loginRegisterUser(method, user) {
     let url = `${BASE_URL}/users/${method}`;
     try {
@@ -60,7 +60,7 @@ async function getPosts() {
         console.error(error);
     }
 }
-
+*/
 async function setPost(post) {
     let url = `${BASE_URL}/posts`;
     try {
@@ -77,7 +77,7 @@ async function apiPost(post) {
         'post' : post
     }
     try {
-        let response = await axios.post(url, newPost, permissionsHeader());
+        let response = await axios.post(url, post, permissionsHeader());
         console.log(response);
     } catch (error) {
         console.error(error);
@@ -85,5 +85,4 @@ async function apiPost(post) {
 
 }
 
-export {loginRegisterUser, registerUser, getPosts , apiPost, setToken, myData}
-*/
+export { apiPost , setPost}
