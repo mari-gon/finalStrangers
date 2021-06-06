@@ -2,6 +2,8 @@ import React, {useState} from 'react'
 import axios from 'axios'
 import {BrowserRouter as Router, Route, Link, Switch, Redirect, useHistory} from 'react-router-dom'
 
+import '../style/newposts.css'
+
 const BASE_URL = 'https://strangers-things.herokuapp.com/api/2104-UIC-RM-WEB-FT'
 const token = localStorage.getItem('token')
 
@@ -94,8 +96,8 @@ const NewPost = function () {
 
     return (
         <div id="createPost">
-            <h1>Create Post</h1>
-            <form>
+            <h1 id='createPo'>Create Post</h1>
+            <form className='createLabel'>
                 <label htmlFor="title">Title: </label>
                     <input required type="text" id="title" 
                     name="title" onChange={handleTitle} 
@@ -103,8 +105,8 @@ const NewPost = function () {
 
                 <label htmlFor="description">Description: </label>
                     <input required type="text" id="description"
-                     name="description" onChange={handleDescription} 
-                     value={post.post.description}/><br/>
+                    name="description" onChange={handleDescription} 
+                    value={post.post.description}/><br/>
 
                 <label htmlFor="price">Price: </label>
                     <input required type="text" id="price" 
@@ -121,7 +123,7 @@ const NewPost = function () {
                     name="willDeliver" onChange={handleWillDeliver} 
                     value={post.post.willDeliver}/><br/>
 
-                <input type="Submit" onClick={(event)=>{
+                <input id="Submit" type="Submit" onClick={(event)=>{
                     event.preventDefault()
                     createPost(post)
                 }}/>

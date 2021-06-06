@@ -4,6 +4,8 @@ import {BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom'
 import App from './App'
 import NewPosts from './components/NewPost'
 
+
+
 ReactDOM.render(
     <Router>
         <App />

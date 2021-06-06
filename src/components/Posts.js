@@ -17,6 +17,8 @@ import React, {useEffect, useState} from 'react'
 import axios from 'axios'
 import {BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom'
 
+import '../style/Posts.css'
+
 
 const BASE_URL = 'https://strangers-things.herokuapp.com/api/2104-UIC-RM-WEB-FT'
 
@@ -65,16 +67,16 @@ const Posts = ()=> {
 
     let postElement = postsToDisplay.map((post, index, arr) =>{
         return (
-            <div key={post._id} id='post'>
-                <h1>{arr[index].title}</h1>
+            <div key={post._id} className='post'>
+                <h1 id="Article">{arr[index].title}</h1>
                 <p>{arr[index].description}</p>
-                <h3>Price</h3>
+                <h3 id="Info">Price</h3>
                 <p>{arr[index].price}</p>
-                <h3>Seller</h3>
+                <h3 id="Info">Seller</h3>
                 <p>{arr[index].author.username}</p>
-                <h3>Location</h3>
+                <h3 id="Info">Location</h3>
                 <p>{arr[index].location}</p>
-                <h3>Delivery Available</h3>
+                <h3 id="Info">Delivery Available</h3>
                 {arr[index].willDeliver ? <p>yes</p> : <p>no</p>}
                 {arr[index].isAuthor ? <> <button onClick={()=>{deletePost(post)}}>delete post</button> </>: null}
             </div>
@@ -86,7 +88,7 @@ const Posts = ()=> {
     return (
         <>
         {<div>
-            <label>Search Available Items </label>
+            <label id='searchAvail'>Search Available Items </label>
             <input 
                 id='search' 
                 type='text' 
@@ -97,12 +99,10 @@ const Posts = ()=> {
         </div>}
 
         {/*Remove this but still make post only available when logged */}
-        {token ? <Link to='/newpost'>Create New Post</Link>: null}
+        {/* {} */}
         {postElement}
         </>
     )
 }
-
-
 
 export default Posts
