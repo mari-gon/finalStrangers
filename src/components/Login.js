@@ -2,6 +2,8 @@ import React, {useState} from 'react'
 import axios from 'axios'
 import {BrowserRouter as Router, Route, Link, Switch, Redirect, useHistory} from 'react-router-dom'
 
+import '../style/Login.css'
+
 const BASE_URL = 'https://strangers-things.herokuapp.com/api/2104-UIC-RM-WEB-FT'
 
 const Login = function (props) {
@@ -50,8 +52,8 @@ const Login = function (props) {
 
     return (
         <div id="login">
-            <h1>Please Login Below</h1>
-            <form onSubmit={(event) => {
+            <h1 id='pleaseLog'>Please Login Below</h1>
+            <form id='loginLabel'onSubmit={(event) => {
                     event.preventDefault()
                     loginUser(user)
                 }}>
@@ -59,7 +61,7 @@ const Login = function (props) {
                 <input required type="text" id="loginUsername" name="loginUsername" onChange={handleUserNameLogin} value={user.user.username}/><br/>
                 <label htmlFor="loginPassword">Password </label>
                 <input required type="password" id="loginPassword" name="loginPassword" onChange={handlePasswordLogin} value={user.user.password}/><br/>
-                <input type="Submit" />
+                <input id="Submit" type="Submit" />
             </form>
         </div>
     )

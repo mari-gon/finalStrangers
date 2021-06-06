@@ -3,6 +3,9 @@ import axios from 'axios'
 import {BrowserRouter as Router, Route, Link, Switch, Redirect, useHistory} from 'react-router-dom'
 import {apiPost} from '../Api'
 import Posts from './Posts'
+
+import '../style/newposts.css'
+
 const BASE_URL = 'https://strangers-things.herokuapp.com/api/2104-UIC-RM-WEB-FT'
 const token = localStorage.getItem('token')
 
@@ -219,29 +222,29 @@ export default function NewPost() {
 
     return (
         <div id="createPost">
-            <h1>Create Post</h1>
-            <form onSubmit={handleSubmit}>
-                <label>Title: </label>
+            <h1 id='createPo'>Create Post</h1>
+            <form className='createLabel' onSubmit={handleSubmit}>
+                <label htmlFor="title">Title: </label>
                     <input required type="text" id="title" 
                     name="title" onChange={(event) => setTitle(event.target.value)} 
                     value={title}/><br/>
 
-                <label >Description: </label>
+                <label htmlFor="description">Description: </label>
                     <input required type="text" id="description"
                      name="description" onChange={(event) => setDescription(event.target.value)} 
                      value={description}/><br/>
 
-                <label >Price: </label>
+                <label htmlFor="price" >Price: </label>
                     <input required type="text" id="price" 
                     name="price" onChange={(event) => setPrice(event.target.value)} 
                     value={price}/><br/>
 
-                <label >Location: </label>
+                <label htmlFor="location">Location: </label>
                     <input type="text" id="location" 
                     name="location" onChange={(event) => setLocation(event.target.value)} 
                     value={location}/><br/>
 
-                <label >Delivery Available: </label>
+                <label htmlFor="willDeliver">Delivery Available: </label>
                     <input type="checkbox" id="willDeliver" 
                     name="willDeliver" onChange={(event) => {let value  = event.target.value ==='on' ? true : false;
                     setWillDeliver(value)} }

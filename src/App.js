@@ -9,6 +9,8 @@ import Posts from './components/Posts'
 import NewPost from './components/NewPost'
 import Profile from './components/Profile'
 
+import '../src/style/App.css'
+
 const App = () =>{
     const [signedIn, setSignedIn] = useState(false)
     return(

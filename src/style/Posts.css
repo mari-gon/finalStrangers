@@ -1,0 +1,43 @@
+#search {
+    width: 50%;
+    margin: auto auto 20px; 
+    text-align: center; 
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+}
+
+.post {
+    width: 80%;
+    margin: auto auto 20px;  
+    border: 1px solid #ffdac6;
+    box-shadow: 1px 1px 1px 1px #fa9500;
+    border-radius: 8px;
+    padding: 8px;
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    align-items: center;
+    text-align: center;
+    background: #fff;
+    opacity: 0.6;
+    filter: alpha(opacity=40);
+}
+
+#Article {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 12px;
+    color: #7c6a0a;
+
+}
+
+.post, #Info {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 10px;
+    color: darkslategrey;
+}
+
+#searchAvail {
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 18px;
+    color: #7c6a0a;
+}

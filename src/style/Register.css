@@ -1,6 +1,6 @@
-#createPost {
+#register {
     width: 50%;
-    margin: auto;
+    margin: auto auto 50px;
     border: 1px solid #7c6a0a;
     box-shadow: 1px 1px 1px 1px #7c6a0a;
     border-radius: 8px;
@@ -10,18 +10,12 @@
     filter: alpha(opacity=40);
 }
 
-#createPo {
-    text-align: center;
+#registration{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: #7c6a0a;
 }
 
-.createLabel {
+.registerLabel {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: darkslategrey;
-}
-
-#willDeliver {
-    margin-right: 15px;
-    float: left;
 }
