@@ -10,7 +10,7 @@ const BASE_URL = 'https://strangers-things.herokuapp.com/api/2104-UIC-RM-WEB-FT'
 const token = localStorage.getItem('token')
 
 export default function NewPost() {
-    
+
     const [ title , setTitle ] = useState('');
     const [ description , setDescription ] = useState('');
     const [ price , setPrice ] = useState('');

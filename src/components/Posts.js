@@ -92,6 +92,7 @@ const Posts = ()=> {
         {postElement}
         </>
     )
+ 
 }
 
 export default Posts
