@@ -2,17 +2,16 @@ import React, {useEffect, useState} from 'react'
 import axios from 'axios'
 import {BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom'
 import NewPost from './NewPost'
-
 import '../style/Posts.css'
 
 
 const BASE_URL = 'https://strangers-things.herokuapp.com/api/2104-UIC-RM-WEB-FT'
 
+
 const Posts = ()=> {
 
     let [posts, setPosts] = useState([])
     let [searchTerm, setSearchTerm] = useState('')
-
     async function getPosts() {
         try {
             let { data } = await axios.get(`${BASE_URL}/posts`, {
@@ -90,8 +89,6 @@ const Posts = ()=> {
         </div>}
 
         {token ? <NewPost />: null}
-        {/*Remove this but still make post only available when logged */}
-        {/* {token ? <Link to='/newpost'>Create New Post</Link>: null} */}
         {postElement}
         </>
     )

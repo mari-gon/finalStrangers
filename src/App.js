@@ -7,7 +7,6 @@ import Register from './components/Register'
 import Header from './components/Header'
 import Posts from './components/Posts'
 import NewPost from './components/NewPost'
-import Profile from './components/Profile'
 
 import '../src/style/App.css'
 
@@ -24,7 +23,6 @@ const App = () =>{
                 <Route path='/login' render={()=> <Login signedIn={signedIn} setSignedIn={setSignedIn}/>} />
                 <Route path='/posts' component={Posts} />
                 <Route path='/newpost' component={NewPost} />
-                <Route path='/profile' component={Profile} />
                 <Route path='/' component={Posts} />
             </Switch>
         </main>

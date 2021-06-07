@@ -9,7 +9,6 @@ import NewPosts from './components/NewPost'
 ReactDOM.render(
     <Router>
         <App />
-        {/* <NewPosts add info so it only adds during logged in and style to the right> */}
     </Router>,
     document.getElementById("app")
 )
